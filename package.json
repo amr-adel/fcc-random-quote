@@ -1,0 +1,14 @@
+{
+  "name": "random-quotes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w style.scss style.css --output-style compressed"
+  },
+  "author": "Amr A. Abdelmoez",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.9.3"
+  }
+}
