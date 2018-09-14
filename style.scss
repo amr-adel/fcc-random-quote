@@ -1,0 +1,37 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    min-height: 100vh;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    --primary-color: #673ab7;
+    --white: #efefef;
+    --black: #444444;
+
+    background-color: var(--primary-color);
+    color: var(--primary-color);
+    min-height: 100vh;
+    width: 100%;
+    font-size: 1.6rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#quote-box {
+    background-color: var(--white);
+    width: 50vw;
+    min-height: 30rem;
+    border-radius: 3px;
+    padding: 5rem 5rem 0;
+}
