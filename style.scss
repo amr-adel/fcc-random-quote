@@ -6,6 +6,12 @@
     box-sizing: inherit;
 }
 
+button {
+    border: none;
+    color: inherit;
+    background: none;
+}
+
 html {
     min-height: 100vh;
     box-sizing: border-box;
@@ -13,7 +19,7 @@ html {
 }
 
 body {
-    --primary-color: #673ab7;
+    --primary-color: #e91e63;
     --white: #efefef;
     --black: #444444;
 
@@ -23,16 +29,93 @@ body {
     width: 100%;
     font-size: 1.6rem;
     font-family: 'Rubik', sans-serif;
+    text-align: center;
 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#quote-box {
+.quote-box {
     background-color: var(--white);
     width: 50vw;
-    min-height: 30rem;
     border-radius: 3px;
-    padding: 5rem 5rem 0;
+    position: relative;
+    box-shadow: 1rem 2.5rem 10rem rgba(0, 0, 0, .25);
+
+    &__header-icon {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 50%;
+        height: 6rem;
+        width: 6rem;
+        background-color: var(--black);
+        transform: translate(-50%, -50%);
+        border-radius: 3px;
+        line-height: 6rem;
+        font-size: 2rem;
+    }
+
+    &__text {
+        font-size: 3.6rem;
+        margin: 5rem 5rem 0;
+    }
+
+    &__author {
+        color: var(--black);
+        font-weight: 400;
+        font-style: italic;
+        text-transform: uppercase;
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+        margin: 2rem 5rem 9rem;
+
+        &::before {
+            content: '—';
+            color: var(--primary-color);
+            font-weight: bold;
+            font-style: normal;
+            margin-right: .5rem;
+        }
+    }
+
+    &__footer {
+        position: absolute;
+        bottom: 0;
+        height: 6rem;
+        width: 100%;
+        background-color: var(--black);
+        border-radius: 0 0 3px 3px;
+        overflow: hidden;
+
+        display: flex;
+
+        &-icon {
+            display: block;
+            color: var(--white);
+            font-size: 2rem;
+            line-height: 6rem;
+            width: 6rem;
+            transition: background-color .15s ease-out;
+            cursor: pointer;
+            
+            &:hover {
+                background-color: var(--primary-color);
+            }
+            
+            &:first-child {
+                margin-right: auto;
+            }
+
+            &--disabled {
+                opacity: .3;
+                cursor: default;
+
+                &:hover {
+                    background-color: inherit;
+                }
+            }
+        }
+    }
 }

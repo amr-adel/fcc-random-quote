@@ -1,1 +1,94 @@
-*,*::after,*::before{margin:0;padding:0;box-sizing:inherit}html{min-height:100vh;box-sizing:border-box;font-size:62.5%}body{--primary-color: #673ab7;--white: #efefef;--black: #444444;background-color:var(--primary-color);color:var(--primary-color);min-height:100vh;width:100%;font-size:1.6rem;font-family:'Rubik', sans-serif;display:flex;justify-content:center;align-items:center}#quote-box{background-color:var(--white);width:50vw;min-height:30rem;border-radius:3px;padding:5rem 5rem 0}
+@charset "UTF-8";
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+button {
+  border: none;
+  color: inherit;
+  background: none; }
+
+html {
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  --primary-color: #e91e63;
+  --white: #efefef;
+  --black: #444444;
+  background-color: var(--primary-color);
+  color: var(--primary-color);
+  min-height: 100vh;
+  width: 100%;
+  font-size: 1.6rem;
+  font-family: 'Rubik', sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.quote-box {
+  background-color: var(--white);
+  width: 50vw;
+  border-radius: 3px;
+  position: relative;
+  box-shadow: 1rem 2.5rem 10rem rgba(0, 0, 0, 0.25); }
+  .quote-box__header-icon {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 50%;
+    height: 6rem;
+    width: 6rem;
+    background-color: var(--black);
+    transform: translate(-50%, -50%);
+    border-radius: 3px;
+    line-height: 6rem;
+    font-size: 2rem; }
+  .quote-box__text {
+    font-size: 3.6rem;
+    margin: 5rem 5rem 0; }
+  .quote-box__author {
+    color: var(--black);
+    font-weight: 400;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    margin: 2rem 5rem 9rem; }
+    .quote-box__author::before {
+      content: '—';
+      color: var(--primary-color);
+      font-weight: bold;
+      font-style: normal;
+      margin-right: .5rem; }
+  .quote-box__footer {
+    position: absolute;
+    bottom: 0;
+    height: 6rem;
+    width: 100%;
+    background-color: var(--black);
+    border-radius: 0 0 3px 3px;
+    overflow: hidden;
+    display: flex; }
+    .quote-box__footer-icon {
+      display: block;
+      color: var(--white);
+      font-size: 2rem;
+      line-height: 6rem;
+      width: 6rem;
+      transition: background-color .15s ease-out;
+      cursor: pointer; }
+      .quote-box__footer-icon:hover {
+        background-color: var(--primary-color); }
+      .quote-box__footer-icon:first-child {
+        margin-right: auto; }
+      .quote-box__footer-icon--disabled {
+        opacity: .3;
+        cursor: default; }
+        .quote-box__footer-icon--disabled:hover {
+          background-color: inherit; }
