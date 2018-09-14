@@ -6,6 +6,9 @@
   padding: 0;
   box-sizing: inherit; }
 
+::-moz-focus-inner {
+  border: none; }
+
 button {
   border: none;
   color: inherit;
@@ -20,6 +23,7 @@ body {
   --primary-color: #e91e63;
   --white: #efefef;
   --black: #444444;
+  --icon-size: 6rem;
   background-color: var(--primary-color);
   color: var(--primary-color);
   min-height: 100vh;
@@ -36,19 +40,20 @@ body {
   width: 50vw;
   border-radius: 3px;
   position: relative;
+  margin: 5rem 0;
   box-shadow: 1rem 2.5rem 10rem rgba(0, 0, 0, 0.25); }
   .quote-box__header-icon {
     position: absolute;
     display: block;
     top: 0;
     left: 50%;
-    height: 6rem;
-    width: 6rem;
+    height: var(--icon-size);
+    width: var(--icon-size);
     background-color: var(--black);
     transform: translate(-50%, -50%);
     border-radius: 3px;
-    line-height: 6rem;
-    font-size: 2rem; }
+    line-height: var(--icon-size);
+    font-size: calc(var(--icon-size) / 3); }
   .quote-box__text {
     font-size: 3.6rem;
     margin: 5rem 5rem 0; }
@@ -69,7 +74,7 @@ body {
   .quote-box__footer {
     position: absolute;
     bottom: 0;
-    height: 6rem;
+    height: var(--icon-size);
     width: 100%;
     background-color: var(--black);
     border-radius: 0 0 3px 3px;
@@ -78,17 +83,51 @@ body {
     .quote-box__footer-icon {
       display: block;
       color: var(--white);
-      font-size: 2rem;
-      line-height: 6rem;
-      width: 6rem;
+      font-size: calc(var(--icon-size) / 3);
+      line-height: var(--icon-size);
+      width: var(--icon-size);
       transition: background-color .15s ease-out;
       cursor: pointer; }
       .quote-box__footer-icon:hover {
         background-color: var(--primary-color); }
+      .quote-box__footer-icon:focus {
+        outline: none; }
       .quote-box__footer-icon:first-child {
         margin-right: auto; }
       .quote-box__footer-icon--disabled {
         opacity: .3;
         cursor: default; }
-        .quote-box__footer-icon--disabled:hover {
+        .quote-box__footer-icon--disabled:hover, .quote-box__footer-icon--disabled:focus {
           background-color: inherit; }
+
+@media screen and (min-width: 1600px) {
+  .quote-box {
+    width: 40vw; } }
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 50%; }
+  .quote-box {
+    width: 65vw; } }
+
+@media screen and (max-width: 800px) {
+  body {
+    --icon-size: 8rem; }
+  .quote-box {
+    width: 80vw; }
+    .quote-box__text {
+      margin: 6rem 3rem 3rem;
+      line-height: 1.4; }
+    .quote-box__author {
+      margin: 3rem 2rem 13rem;
+      text-align: right; }
+    .quote-box__footer-icon:hover, .quote-box__footer-icon:focus {
+      background-color: inherit; }
+    .quote-box__footer-icon:active {
+      background-color: var(--primary-color); }
+    .quote-box__footer-icon--disabled:active {
+      background-color: inherit; } }
+
+@media screen and (max-width: 414px) {
+  html {
+    font-size: 45%; } }
