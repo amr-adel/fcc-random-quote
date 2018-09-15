@@ -8,7 +8,8 @@
     const quoteAuthor = document.getElementById('author');
 
     const quotes = [];
-    let quoteNo = 0;
+    let currentQuote = null;
+    let prevState = false;
 
     next.addEventListener('click', () => getQuote('next'))
     prev.addEventListener('click', () => getQuote('prev'))
@@ -17,18 +18,50 @@
         let quote, author;
 
         if (direction === 'next') {
-            fetch(url, {cache: "no-store"})
-            .then(response => response.json())
-            .then(data => {
-                quote = data[0].content.slice(3, -5);
-                author = data[0].title;
+            if (currentQuote === null || currentQuote === (quotes.length -1)) {
+                fetch(url, {cache: "no-store"})
+                .then(response => response.json())
+                .then(data => {
+                    quote = data[0].content.slice(3, -5);
+                    author = data[0].title;
 
-                quotes.push({quote, author})
-                quoteNo++;
-                
+                    quotes.push({quote, author});
+                    console.table(quotes);
+                    currentQuote === null ? currentQuote = 0 : currentQuote++;
+                    chkPrevState();
+                    
+                    updateDOM(quote, author);
+                })
+                .catch(err => alert('Something went wrong', err))
+            } else {
+                currentQuote++;
+
+                quote = quotes[currentQuote].quote;
+                author = quotes[currentQuote].author;
+                chkPrevState();
+
                 updateDOM(quote, author);
-            })
-            .catch(err => alert('Something went wrong', err))
+            }
+        } else {
+            if (prevState) {
+                currentQuote--;
+
+                quote = quotes[currentQuote].quote;
+                author = quotes[currentQuote].author;
+                chkPrevState();
+
+                updateDOM(quote, author);
+            }
+        }
+    }
+
+    const chkPrevState = () => {
+        if (quotes.length > 1 && currentQuote !== 0) {
+            prevState = true;
+            prev.classList.remove('quote-box__footer-icon--disabled');
+        } else {
+            prevState = false;
+            prev.classList.add('quote-box__footer-icon--disabled');
         }
     }
 
