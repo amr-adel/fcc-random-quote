@@ -15,42 +15,24 @@
     prev.addEventListener('click', () => getQuote('prev'))
 
     const getQuote = (direction) => {
-        let quote, author;
-
         if (direction === 'next') {
             if (currentQuote === null || currentQuote === (quotes.length -1)) {
                 fetch(url, {cache: "no-store"})
                 .then(response => response.json())
                 .then(data => {
-                    quote = data[0].content.slice(3, -5);
-                    author = data[0].title;
-
-                    quotes.push({quote, author});
-                    console.table(quotes);
+                    quotes.push({quote: data[0].content.slice(3, -5), author: data[0].title});
                     currentQuote === null ? currentQuote = 0 : currentQuote++;
-                    chkPrevState();
-                    
-                    updateDOM(quote, author);
+                    render();
                 })
                 .catch(err => alert('Something went wrong', err))
             } else {
                 currentQuote++;
-
-                quote = quotes[currentQuote].quote;
-                author = quotes[currentQuote].author;
-                chkPrevState();
-
-                updateDOM(quote, author);
+                render();
             }
         } else {
             if (prevState) {
                 currentQuote--;
-
-                quote = quotes[currentQuote].quote;
-                author = quotes[currentQuote].author;
-                chkPrevState();
-
-                updateDOM(quote, author);
+                render();
             }
         }
     }
@@ -65,7 +47,12 @@
         }
     }
 
-    const updateDOM = (quote, author) => {
+    const render = () => {
+        quote = quotes[currentQuote].quote;
+        author = quotes[currentQuote].author;
+        
+        chkPrevState();
+
         quoteText.innerHTML = quote;
         quoteAuthor.innerHTML = author;
     }
