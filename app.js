@@ -13,15 +13,24 @@
     prev.addEventListener('click', () => getQuote('prev'))
 
     const getQuote = (direction) => {
-        let quote = 'Graphic design is the design of highly disposable items… It all winds up in the garbage';
-        let author = 'Karrie Jacobs';
+        let quote = '';
+        let author = '';
 
-        return updateDOM(quote, author)
+        if (direction === 'next') {
+            fetch(url, {cache: "no-store"})
+            .then(response => response.json())
+            .then(data => {
+                quote = data[0].content.slice(3, -5);
+                author = data[0].title;
+            })
+            .then(() => updateDOM(quote, author))
+            .catch(err => alert('Something went wrong', err))
+        }
     }
 
     const updateDOM = (quote, author) => {
-        quoteText.innerText = quote;
-        quoteAuthor.innerText = author;
+        quoteText.innerHTML = quote;
+        quoteAuthor.innerHTML = author;
     }
 
     getQuote('next');
