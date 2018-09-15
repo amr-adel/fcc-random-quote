@@ -8,13 +8,13 @@
     const quoteAuthor = document.getElementById('author');
 
     const quotes = [];
+    let quoteNo = 0;
 
     next.addEventListener('click', () => getQuote('next'))
     prev.addEventListener('click', () => getQuote('prev'))
 
     const getQuote = (direction) => {
-        let quote = '';
-        let author = '';
+        let quote, author;
 
         if (direction === 'next') {
             fetch(url, {cache: "no-store"})
@@ -22,8 +22,12 @@
             .then(data => {
                 quote = data[0].content.slice(3, -5);
                 author = data[0].title;
+
+                quotes.push({quote, author})
+                quoteNo++;
+                
+                updateDOM(quote, author);
             })
-            .then(() => updateDOM(quote, author))
             .catch(err => alert('Something went wrong', err))
         }
     }
