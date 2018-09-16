@@ -13,7 +13,7 @@
     let currentQuote = null;
     let prevState = false;
 
-    const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffc107', '#ff9800', '#ff5722 ', '#795548', '#607d8b']
+    const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#ffc107', '#ff9800', '#ff5722 ', '#795548', '#607d8b']
 
     next.addEventListener('click', () => getQuote('next'))
     prev.addEventListener('click', () => getQuote('prev'))
@@ -57,10 +57,16 @@
         
         chkPrevState();
 
-        body.style.cssText = `--primary-color: ${colors[(Math.floor(Math.random() * colors.length))]};`
+        body.style.setProperty('--primary-color', colors[(Math.floor(Math.random() * colors.length))])
 
-        quoteText.innerHTML = quote;
-        quoteAuthor.innerHTML = author;
+        body.style.setProperty('--opacity', '0');
+        
+        setTimeout(() => {
+            quoteText.innerHTML = quote;
+            quoteAuthor.innerHTML = author;
+
+            body.style.setProperty('--opacity', '1');
+        }, 500);
 
         tweet.setAttribute('href', `https://twitter.com/intent/tweet?text="${quote.replace(/'/g, '%27')}"%0a- ${author}`);
     }

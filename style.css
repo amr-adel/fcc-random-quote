@@ -21,6 +21,7 @@ html {
 
 body {
   --primary-color: #e91e63;
+  --opacity: 1;
   --white: #efefef;
   --black: #444444;
   --icon-size: 6rem;
@@ -56,8 +57,11 @@ body {
     line-height: var(--icon-size);
     font-size: calc(var(--icon-size) / 3); }
   .quote-box__text {
+    font-family: 'Crete Round', serif;
     font-size: 3.6rem;
-    margin: 5rem 5rem 0; }
+    margin: 5rem 5rem 0;
+    opacity: var(--opacity);
+    transition: opacity .5s ease-out; }
   .quote-box__author {
     color: var(--black);
     font-weight: 400;
@@ -65,13 +69,16 @@ body {
     text-transform: uppercase;
     font-size: 1.8rem;
     letter-spacing: 1px;
-    margin: 2rem 5rem 9rem; }
+    margin: 2rem 5rem 9rem;
+    opacity: var(--opacity);
+    transition: opacity .5s ease-out .15s; }
     .quote-box__author::before {
       content: '—';
       color: var(--primary-color);
       font-weight: bold;
       font-style: normal;
-      margin-right: .5rem; }
+      margin-right: .5rem;
+      transition: color 1s ease-out; }
   .quote-box__footer {
     position: absolute;
     bottom: 0;
