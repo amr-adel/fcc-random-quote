@@ -2,6 +2,7 @@
 
     const url = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
 
+    const tweet = document.getElementById('tweet-quote');
     const next = document.getElementById('new-quote');
     const prev = document.getElementById('prev-quote');
     const quoteText = document.getElementById('text');
@@ -20,7 +21,7 @@
                 fetch(url, {cache: "no-store"})
                 .then(response => response.json())
                 .then(data => {
-                    quotes.push({quote: data[0].content.slice(3, -5), author: data[0].title});
+                    quotes.push({quote: data[0].content.slice(3, -5).trim(), author: data[0].title});
                     currentQuote === null ? currentQuote = 0 : currentQuote++;
                     render();
                 })
@@ -55,6 +56,8 @@
 
         quoteText.innerHTML = quote;
         quoteAuthor.innerHTML = author;
+
+        tweet.setAttribute('href', `https://twitter.com/intent/tweet?text="${quote.replace(/'/g, '%27')}"%0a- ${author}`);
     }
 
     getQuote('next');
