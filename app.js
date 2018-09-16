@@ -1,6 +1,6 @@
 (function () {
 
-    const url = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
+    const url = 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
 
     const tweet = document.getElementById('tweet-quote');
     const next = document.getElementById('new-quote');
