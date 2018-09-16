@@ -35,6 +35,7 @@ body {
     font-size: 1.6rem;
     font-family: 'Rubik', sans-serif;
     text-align: center;
+    transition: background-color 1s ease-out, color 1s ease-out;
 
     display: flex;
     justify-content: center;

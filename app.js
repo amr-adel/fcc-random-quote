@@ -2,6 +2,7 @@
 
     const url = 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
 
+    const body = document.querySelector('body');
     const tweet = document.getElementById('tweet-quote');
     const next = document.getElementById('new-quote');
     const prev = document.getElementById('prev-quote');
@@ -11,6 +12,8 @@
     const quotes = [];
     let currentQuote = null;
     let prevState = false;
+
+    const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffc107', '#ff9800', '#ff5722 ', '#795548', '#607d8b']
 
     next.addEventListener('click', () => getQuote('next'))
     prev.addEventListener('click', () => getQuote('prev'))
@@ -53,6 +56,8 @@
         author = quotes[currentQuote].author;
         
         chkPrevState();
+
+        body.style.cssText = `--primary-color: ${colors[(Math.floor(Math.random() * colors.length))]};`
 
         quoteText.innerHTML = quote;
         quoteAuthor.innerHTML = author;
