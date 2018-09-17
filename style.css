@@ -108,34 +108,57 @@ body {
         .quote-box__footer-icon--disabled:hover, .quote-box__footer-icon--disabled:focus {
           background-color: inherit; }
 
-.info {
+.info__toggle {
+  display: none; }
+
+.info__btn {
   position: absolute;
   bottom: 0;
   right: 0;
-  background-color: var(--black); }
-  .info__toggle {
-    display: none; }
-  .info__btn {
-    height: var(--icon-size);
-    width: var(--icon-size);
+  height: var(--icon-size);
+  width: var(--icon-size);
+  line-height: var(--icon-size);
+  font-size: calc(var(--icon-size) / 3);
+  color: var(--white);
+  background-color: var(--black);
+  transition: all .15s ease-out;
+  z-index: 10;
+  cursor: pointer; }
+  .info__btn:hover, .info__btn:focus {
+    background-color: var(--primary-color);
+    box-shadow: 1rem 2.5rem 10rem rgba(0, 0, 0, 0.5); }
+  .info__btn .close,
+  .info__btn .open {
     display: block;
-    line-height: var(--icon-size);
-    font-size: calc(var(--icon-size) / 3);
-    color: var(--white);
-    transition: all .15s ease-out;
-    cursor: pointer; }
-    .info__btn:hover, .info__btn:focus {
-      background-color: var(--primary-color);
-      box-shadow: 1rem 2.5rem 10rem rgba(0, 0, 0, 0.5); }
-  .info__toggle:checked ~ .info__modal {
-    display: none; }
-  .info__modal {
-    position: fixed;
-    top: 5rem;
-    left: 5rem;
-    width: calc(100vw - 10rem);
-    min-height: calc(100vh - 10rem);
-    background-color: rgba(0, 0, 0, 0.35); }
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity .3s ease-out; }
+  .info__btn .close {
+    opacity: 0; }
+
+.info__toggle:checked ~ .info__modal {
+  opacity: 1;
+  width: 100%;
+  min-height: 100vh; }
+
+.info__toggle:checked ~ .info__btn .close {
+  opacity: 1; }
+
+.info__toggle:checked ~ .info__btn .open {
+  opacity: 0; }
+
+.info__modal {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  min-height: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  transition: all .5s ease-out;
+  overflow: hidden; }
 
 @media screen and (min-width: 1600px) {
   .quote-box {
