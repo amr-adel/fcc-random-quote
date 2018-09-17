@@ -139,6 +139,48 @@ body {
     }
 }
 
+.info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--black);
+    
+    &__toggle {
+        display: none;
+    }
+    
+    &__btn {
+        height: var(--icon-size);
+        width: var(--icon-size);
+        display: block;
+        line-height: var(--icon-size);
+        font-size: calc(var(--icon-size) / 3);
+        color: var(--white);
+        transition: all .15s ease-out;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            background-color: var(--primary-color);
+            box-shadow: 1rem 2.5rem 10rem rgba(0, 0, 0, .5);
+        }
+    }
+
+    &__toggle:checked ~ &__modal {
+        display: none;
+    }
+
+    &__modal {
+        position: fixed;
+        top: 5rem;
+        left: 5rem;
+        width: calc(100vw - 10rem);
+        min-height: calc(100vh - 10rem);
+        background-color: rgba(0, 0, 0, .35);
+    }
+}
+
+// MEDIA QUERIES ===========================================================
 
 @media screen and (min-width: 1600px) {
     .quote-box {

@@ -71,7 +71,7 @@ body {
     letter-spacing: 1px;
     margin: 2rem 5rem 9rem;
     opacity: var(--opacity);
-    transition: opacity .5s ease-out .15s; }
+    transition: opacity .5s ease-out .1s; }
     .quote-box__author::before {
       content: '—';
       color: var(--primary-color);
@@ -107,6 +107,35 @@ body {
         cursor: default; }
         .quote-box__footer-icon--disabled:hover, .quote-box__footer-icon--disabled:focus {
           background-color: inherit; }
+
+.info {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--black); }
+  .info__toggle {
+    display: none; }
+  .info__btn {
+    height: var(--icon-size);
+    width: var(--icon-size);
+    display: block;
+    line-height: var(--icon-size);
+    font-size: calc(var(--icon-size) / 3);
+    color: var(--white);
+    transition: all .15s ease-out;
+    cursor: pointer; }
+    .info__btn:hover, .info__btn:focus {
+      background-color: var(--primary-color);
+      box-shadow: 1rem 2.5rem 10rem rgba(0, 0, 0, 0.5); }
+  .info__toggle:checked ~ .info__modal {
+    display: none; }
+  .info__modal {
+    position: fixed;
+    top: 5rem;
+    left: 5rem;
+    width: calc(100vw - 10rem);
+    min-height: calc(100vh - 10rem);
+    background-color: rgba(0, 0, 0, 0.35); }
 
 @media screen and (min-width: 1600px) {
   .quote-box {
