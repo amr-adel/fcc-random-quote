@@ -10,6 +10,12 @@
     border: none;
 }
 
+a:link,
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
 button {
     border: none;
     color: inherit;
@@ -216,11 +222,11 @@ body {
         align-items: center;
     }
 
-    &__modal { // temporary
-        opacity: 1;
-        width: 100%;
-        height: 100vh;
-    }
+    // &__modal { // temporary
+    //     opacity: 1;
+    //     width: 100%;
+    //     height: 100vh;
+    // }
 
     &__wrapper {
         background-color: var(--white);
@@ -234,33 +240,26 @@ body {
 
         & > div {
             padding: 2rem 4rem;
-
-            &:first-child {
-                border-right: 1px solid rgba(0, 0, 0, .25);
-            }
         }
     }
 
     &__about {
         flex-basis: 60%;
     }
-
-    &__follow {
-        flex-basis: 40%;
-    }
-
+    
+    
     &__title {
         font-size: 2.4rem;
         margin-bottom: 2rem;
         text-transform: uppercase;
         letter-spacing: 2px;
         text-align: left;
-
+        
         &::after {
             content: '';
             background-color: var(--black);
             display: block;
-            height: 3px;
+            height: .5rem;
             width: 20%;
             margin-top: 1rem;
             border-radius: 3px;
@@ -273,9 +272,59 @@ body {
         color: var(--black);
         font-size: 1.8rem;
         line-height: 1.5;
-
+        
         &:not(:last-child) {
             margin-bottom: 1rem;
+        }
+
+        & a:link,
+        & a:visited {
+            color: var(--primary-color);
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__follow {
+        flex-basis: 40%;
+        background-color: var(--primary-color);
+        
+
+        & .info__title {
+            color: var(--white);
+        }
+    }
+
+    &__social {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        margin-top: 3rem;
+        color: var(--white);
+
+        & > li {
+            display: block;
+            width: calc(var(--icon-size) / 3);
+            height: calc(var(--icon-size) / 3);
+            font-size: calc(var(--icon-size) / 3);
+            transition: transform .2s ease-out;
+
+            &:not(:last-child) {
+                margin-right: 1.5rem;
+            }
+
+            &:hover {
+                border-bottom: 2px solid var(--black);
+                height: calc(var(--icon-size) / 2);
+                transform: translateY(-3px);
+            }
+
+            & > a > i {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
 }

@@ -9,6 +9,11 @@
 ::-moz-focus-inner {
   border: none; }
 
+a:link,
+a:visited {
+  text-decoration: none;
+  color: inherit; }
+
 button {
   border: none;
   color: inherit;
@@ -165,11 +170,6 @@ body {
   justify-content: center;
   align-items: center; }
 
-.info__modal {
-  opacity: 1;
-  width: 100%;
-  height: 100vh; }
-
 .info__wrapper {
   background-color: var(--white);
   padding: 4rem;
@@ -180,14 +180,9 @@ body {
   display: flex; }
   .info__wrapper > div {
     padding: 2rem 4rem; }
-    .info__wrapper > div:first-child {
-      border-right: 1px solid rgba(0, 0, 0, 0.25); }
 
 .info__about {
   flex-basis: 60%; }
-
-.info__follow {
-  flex-basis: 40%; }
 
 .info__title {
   font-size: 2.4rem;
@@ -199,7 +194,7 @@ body {
     content: '';
     background-color: var(--black);
     display: block;
-    height: 3px;
+    height: .5rem;
     width: 20%;
     margin-top: 1rem;
     border-radius: 3px; }
@@ -212,6 +207,40 @@ body {
   line-height: 1.5; }
   .info__text:not(:last-child) {
     margin-bottom: 1rem; }
+  .info__text a:link,
+  .info__text a:visited {
+    color: var(--primary-color); }
+    .info__text a:link:hover,
+    .info__text a:visited:hover {
+      text-decoration: underline; }
+
+.info__follow {
+  flex-basis: 40%;
+  background-color: var(--primary-color); }
+  .info__follow .info__title {
+    color: var(--white); }
+
+.info__social {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  margin-top: 3rem;
+  color: var(--white); }
+  .info__social > li {
+    display: block;
+    width: calc(var(--icon-size) / 3);
+    height: calc(var(--icon-size) / 3);
+    font-size: calc(var(--icon-size) / 3);
+    transition: transform .2s ease-out; }
+    .info__social > li:not(:last-child) {
+      margin-right: 1.5rem; }
+    .info__social > li:hover {
+      border-bottom: 2px solid var(--black);
+      height: calc(var(--icon-size) / 2);
+      transform: translateY(-3px); }
+    .info__social > li > a > i {
+      width: 100%;
+      height: 100%; }
 
 @media screen and (min-width: 1600px) {
   .quote-box {
