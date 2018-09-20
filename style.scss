@@ -189,18 +189,22 @@ body {
     
     &__toggle:checked ~ &__modal {
         opacity: 1;
-        width: 100%;
-        height: 100vh;
+        transform: scale(1, 1);
+
+        & .info__wrapper > div {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
     
     &__toggle:checked ~ &__btn {
-
+        
         background-color: var(--primary-color);
-
+        
         & .close {
             opacity: 1;
         }
-
+        
         & .open {
             opacity: 0;
         }
@@ -209,24 +213,19 @@ body {
     &__modal {
         opacity: 0;
         position: fixed;
-        width: 0;
-        height: 0;
-        bottom: 0;
-        right: 0;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        transform: scale(.5, .01);
         background-color: rgba(0, 0, 0, .8);
-        transition: all .5s ease-out;
+        transition: all .3s ease-out;
         overflow: hidden;
 
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
-    // &__modal { // temporary
-    //     opacity: 1;
-    //     width: 100%;
-    //     height: 100vh;
-    // }
 
     &__wrapper {
         background-color: var(--white);
@@ -240,11 +239,14 @@ body {
 
         & > div {
             padding: 2rem 4rem;
+            opacity: 0;
+            transform: translateY(2rem);
         }
     }
 
     &__about {
         flex-basis: 60%;
+        transition: all .5s ease-out .4s;
     }
     
     
@@ -291,6 +293,7 @@ body {
         flex-basis: 40%;
         background-color: var(--primary-color);
         border-radius: 3px;
+        transition: all .5s ease-out .5s;
         
 
         & .info__title {

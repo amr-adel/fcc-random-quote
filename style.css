@@ -146,8 +146,10 @@ body {
 
 .info__toggle:checked ~ .info__modal {
   opacity: 1;
-  width: 100%;
-  height: 100vh; }
+  transform: scale(1, 1); }
+  .info__toggle:checked ~ .info__modal .info__wrapper > div {
+    opacity: 1;
+    transform: translateY(0); }
 
 .info__toggle:checked ~ .info__btn {
   background-color: var(--primary-color); }
@@ -159,12 +161,13 @@ body {
 .info__modal {
   opacity: 0;
   position: fixed;
-  width: 0;
-  height: 0;
-  bottom: 0;
-  right: 0;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transform: scale(0.5, 0.01);
   background-color: rgba(0, 0, 0, 0.8);
-  transition: all .5s ease-out;
+  transition: all .3s ease-out;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -179,10 +182,13 @@ body {
   overflow: auto;
   display: flex; }
   .info__wrapper > div {
-    padding: 2rem 4rem; }
+    padding: 2rem 4rem;
+    opacity: 0;
+    transform: translateY(2rem); }
 
 .info__about {
-  flex-basis: 60%; }
+  flex-basis: 60%;
+  transition: all .5s ease-out .4s; }
 
 .info__title {
   font-size: 2.4rem;
@@ -217,7 +223,8 @@ body {
 .info__follow {
   flex-basis: 40%;
   background-color: var(--primary-color);
-  border-radius: 3px; }
+  border-radius: 3px;
+  transition: all .5s ease-out .5s; }
   .info__follow .info__title {
     color: var(--white); }
 
