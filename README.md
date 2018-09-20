@@ -1,6 +1,6 @@
 # Build a Random Quote Machine | FCC Project
 
-[![Random Quote Machine](demo.jpg "Random Quote Machine")](https://learn.freecodecamp.org/front-end-libraries/front-end-libraries-projects/build-a-random-quote-machine/)
+[![Random Quote Machine](demo.jpg "Random Quote Machine")](https://amr-adel.github.io/fcc-random-quote/)
 
 A *FreeCodeCamp* challenge on using front end libraries to build a Pomodoro Clock with the below user stories to be fulfilled:
 
@@ -17,4 +17,4 @@ A *FreeCodeCamp* challenge on using front end libraries to build a Pomodoro Cloc
 > 11. The #quote-box wrapper element should be horizontally centered. Please run tests with browser's zoom level at 100% and page maximized.
 
 #### More about the challenge [Build a Random Quote Machine](https://learn.freecodecamp.org/front-end-libraries/front-end-libraries-projects/build-a-random-quote-machine/).
-#### See it in action [HERE](https://learn.freecodecamp.org/front-end-libraries/front-end-libraries-projects/build-a-random-quote-machine/).
+#### See it in action [HERE](https://amr-adel.github.io/fcc-random-quote/).
