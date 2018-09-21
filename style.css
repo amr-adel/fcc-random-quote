@@ -117,7 +117,7 @@ body {
   display: none; }
 
 .info__btn {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   height: var(--icon-size);
@@ -152,7 +152,10 @@ body {
     transform: translateY(0); }
 
 .info__toggle:checked ~ .info__btn {
-  background-color: var(--primary-color); }
+  background-color: var(--primary-color);
+  border-radius: 10rem;
+  bottom: 2rem;
+  right: 1rem; }
   .info__toggle:checked ~ .info__btn .close {
     opacity: 1; }
   .info__toggle:checked ~ .info__btn .open {

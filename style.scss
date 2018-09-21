@@ -152,7 +152,7 @@ body {
     }
     
     &__btn {
-        position: absolute;
+        position: fixed;
         bottom: 0;
         right: 0;
         height: var(--icon-size);
@@ -200,6 +200,9 @@ body {
     &__toggle:checked ~ &__btn {
         
         background-color: var(--primary-color);
+        border-radius: 10rem;
+        bottom: 2rem;
+        right: 1rem;
         
         & .close {
             opacity: 1;
