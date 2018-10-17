@@ -2,7 +2,7 @@
 
 [![Random Quote Machine](demo.jpg "Random Quote Machine")](https://amr-adel.github.io/fcc-random-quote/)
 
-A *FreeCodeCamp* challenge on using front end libraries to build a Pomodoro Clock with the below user stories to be fulfilled:
+A *FreeCodeCamp* challenge on using front end libraries to build a Random Quote Machine with the below user stories to be fulfilled:
 
 > 1. I can see a wrapper element with a corresponding id="quote-box".
 > 2. Within #quote-box, I can see an element with a corresponding id="text".
