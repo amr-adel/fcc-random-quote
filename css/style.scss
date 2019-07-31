@@ -22,6 +22,11 @@ button {
     background: none;
 }
 
+svg {
+    height: calc(var(--icon-size) / 3);
+    width: calc(var(--icon-size) / 3);
+}
+
 html {
     min-height: 100vh;
     box-sizing: border-box;
@@ -68,7 +73,11 @@ body {
         transform: translate(-50%, -50%);
         border-radius: 3px;
         line-height: var(--icon-size);
-        font-size: calc(var(--icon-size) / 3);
+
+        // & svg {
+        //     height: calc(var(--icon-size) / 3);
+        //     width: calc(var(--icon-size) / 3);
+        // }
     }
     
     &__text {
@@ -145,6 +154,7 @@ body {
     }
 }
 
+// MODAL ============================================
 .info {
     
     &__toggle {
@@ -158,13 +168,17 @@ body {
         height: var(--icon-size);
         width: var(--icon-size);
         line-height: var(--icon-size);
-        font-size: calc(var(--icon-size) / 3);
         color: var(--white);
         background-color: var(--black);
         border-radius: 3px 0 0 0;
         transition: all .15s ease-out;
         z-index: 10;
         cursor: pointer;
+
+        // & svg {
+        //     height: calc(var(--icon-size) / 3);
+        //     width: calc(var(--icon-size) / 3);
+        // }
         
         &:hover,
         &:focus {
