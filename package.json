@@ -2,9 +2,9 @@
   "name": "random-quotes",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
-    "sass": "node-sass -w style.scss style.css"
+    "sass": "node-sass -w css/style.scss css/style.css"
   },
   "author": "Amr A. Abdelmoez",
   "license": "ISC",
