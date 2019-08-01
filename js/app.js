@@ -77,7 +77,7 @@
 
     chkPrevState()
 
-    body.style.setProperty('--primary-color', colors[Math.floor(Math.random() * colors.length)])
+    body.style.setProperty('--color-primary', colors[Math.floor(Math.random() * colors.length)])
 
     body.style.setProperty('--opacity', '0')
 

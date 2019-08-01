@@ -47,10 +47,10 @@
       </footer>
     </article>
 
-    <aside class="info">
-      <input type="checkbox" class="info__toggle" id="info-toggle" />
+    <aside class="modal">
+      <input type="checkbox" class="modal__toggle-input" id="info-toggle" />
 
-      <label for="info-toggle" class="info__btn">
+      <label for="info-toggle" class="modal__toggle-label">
         <svg class="open">
           <use href="./images/icons.svg#info" />
         </svg>
@@ -58,70 +58,73 @@
           <use href="./images/icons.svg#times" />
         </svg>
       </label>
-      <section class="info__modal">
-        <div class="info__wrapper">
-          <div class="info__about">
-            <h3 class="info__title">
+      <section class="modal__container">
+        <div class="modal__content-wrapper">
+          <div class="description">
+            <h3 class="modal__title">
               Random Quote Machine
             </h3>
-            <p class="info__text">
+            <p class="modal__text">
               This project was part of the
-              <a
-                href="https://learn.freecodecamp.org/front-end-libraries/front-end-libraries-projects/build-a-random-quote-machine/"
-                target="_blank"
-                >FreeCodeCamp</a
-              >
-              Front End Libraries Certification, which requires using AJAX to retrieve a random quote from any API of
-              choice, and render it to screen with the ability to tweet it.
+              <a href="https://learn.freecodecamp.org/front-end-libraries/front-end-libraries-projects/build-a-random-quote-machine/" target="_blank">FreeCodeCamp</a>
+              Front End Libraries Certification, which requires using AJAX to retrieve a random quote from any API of choice, and render it to screen with the ability to tweet it.
             </p>
-            <p class="info__text">
+            <p class="modal__text">
               In this project, I'm using
-              <a href="https://quotesondesign.com/api-v4-0/" target="_blank">Quotes On Design</a> API by
-              <a href="http://chriscoyier.net/" target="_blank">Chris Coyier</a>.
+              <a href="https://quotesondesign.com/api-v4-0/" target="_blank">Quotes On Design</a> API by <a href="http://chriscoyier.net/" target="_blank">Chris Coyier</a>.
             </p>
-            <p class="info__text">
+            <p class="modal__text">
               Interested in code? Check the project's repository on
               <a href="https://github.com/amr-adel/fcc-random-quote" target="_blank">GitHub</a>.
             </p>
           </div>
-          <div class="info__follow">
-            <h3 class="info__title">
+          <div class="about">
+            <h3 class="modal__title">
               Get in touch
             </h3>
-            <p class="info__text">
-              Hey, I'm Amr, and I would love to hear your thoughts about this project and any suggestions to make it
-              better. Technical feedback is highly appreciated too.
+            <p class="modal__text">
+              Hey, I'm Amr, and I would love to hear your thoughts about this project and any suggestions to make it better. Technical feedback is highly appreciated too.
             </p>
-            <ul class="info__social">
+            <ul class="about__social-icons">
               <li>
-                <a href="https://twitter.com/fullstackamr" target="_blank">
-                  <svg class="open">
-                    <use href="./images/icons.svg#twitter" />
-                  </svg></a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/amr-abdelmoez/" target="_blank">
-                  <svg class="open">
-                    <use href="./images/icons.svg#linkedin" />
+                <a href="https://www.fullstackamr.com/" target="_blank" title="Portfolio">
+                  <svg>
+                    <use href="./images/icons.svg#globe"></use>
                   </svg>
                 </a>
               </li>
               <li>
-                <a href="https://github.com/amr-adel" target="_blank">
-                  <svg class="open">
-                    <use href="./images/icons.svg#github" />
-                  </svg></a>
+                <a href="https://twitter.com/fullstackamr/" target="_blank" title="Twitter">
+                  <svg>
+                    <use href="./images/icons.svg#twitter"></use>
+                  </svg>
+                </a>
               </li>
               <li>
-                <a href="https://codepen.io/amr-adel/" target="_blank">
-                  <svg class="open">
-                    <use href="./images/icons.svg#codepen" />
-                  </svg></a>
+                <a href="https://www.linkedin.com/in/amr-abdelmoez/" target="_blank" title="LinkedIn">
+                  <svg>
+                    <use href="./images/icons.svg#linkedin"></use>
+                  </svg>
+                </a>
               </li>
               <li>
-                <a href="https://www.freecodecamp.org/amr-adel" target="_blank">
-                  <svg class="open">
-                    <use href="./images/icons.svg#freecodecamp" />
+                <a href="https://github.com/amr-adel/" target="_blank" title="GitHub">
+                  <svg>
+                    <use href="./images/icons.svg#github"></use>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://codepen.io/amr-adel/" target="_blank" title="CodePen">
+                  <svg>
+                    <use href="./images/icons.svg#codepen"></use>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.freecodecamp.org/amr-adel/" target="_blank" title="FreeCodeCamp">
+                  <svg>
+                    <use href="./images/icons.svg#freecodecamp"></use>
                   </svg>
                 </a>
               </li>
@@ -131,7 +134,7 @@
       </section>
     </aside>
 
-    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     <script src="./js/app.js"></script>
   </body>
 </html>
