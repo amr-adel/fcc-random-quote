@@ -375,7 +375,7 @@ body {
 
 @media screen and (max-width: 800px) {
   body {
-    --icon-size: 8rem;
+    --icon-size: 3.5rem;
   }
 
   .quote-box {
@@ -407,8 +407,8 @@ body {
     }
   }
 
-  .info {
-    &__wrapper {
+  .modal {
+    &__content-wrapper {
       flex-direction: column;
 
       & > div {
@@ -424,7 +424,7 @@ body {
       }
     }
 
-    &__social {
+    &__social-icons {
       justify-content: space-around;
       width: 80%;
       margin: 3rem auto 1rem;
@@ -437,14 +437,17 @@ body {
     font-size: 45%;
   }
 
-  .info {
-    &__wrapper {
-      width: 90vw;
-      padding: 2rem;
+  .modal__content-wrapper {
+    width: 90vw;
+    padding: 2rem;
 
-      & > div {
-        padding: 4rem 2rem;
-      }
+    & > div {
+      padding: 4rem 2rem;
+    }
+
+    & .description {
+      flex-basis: 60%;
+      overflow-y: initial;
     }
   }
 }
