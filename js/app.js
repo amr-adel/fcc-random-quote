@@ -17,6 +17,12 @@
   next.addEventListener('click', () => getQuote('next'))
   prev.addEventListener('click', () => getQuote('prev'))
 
+  document.querySelector(".modal__container").addEventListener('click', () => {
+    if (event.target.className === 'modal__container') {
+        document.getElementById("info-toggle").click()
+    }
+  })
+
   const getQuote = direction => {
     if (direction === 'next') {
       if (currentQuote === null || currentQuote === quotes.length - 1) {
