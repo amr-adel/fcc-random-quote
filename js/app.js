@@ -1,5 +1,5 @@
 ;(function() {
-  const url = () => `https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&timestamp=${new Date().getTime()}`
+  const url = () => `https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand&per_page=1&timestamp=${new Date().getTime()}`
 
   const body = document.querySelector('body')
   const tweet = document.getElementById('tweet-quote')
@@ -30,8 +30,8 @@
           .get(url())
           .then(res => {
             quotes.push({
-              quote: res.data[0].content.slice(3, -5).trim(),
-              author: res.data[0].title
+              quote: res.data[0].content.rendered.slice(3, -5).trim(),
+              author: res.data[0].title.rendered
             })
             currentQuote === null ? (currentQuote = 0) : currentQuote++
             render()
