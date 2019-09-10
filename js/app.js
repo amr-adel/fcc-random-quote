@@ -1,5 +1,6 @@
 ;(function() {
-  const url = () => `https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand&per_page=1&timestamp=${new Date().getTime()}`
+  const url = () =>
+    `https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand&per_page=1&timestamp=${new Date().getTime()}`
 
   const body = document.querySelector('body')
   const tweet = document.getElementById('tweet-quote')
@@ -12,42 +13,24 @@
   let currentQuote = null
   let prevState = false
 
-  const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#ffc107', '#ff9800', '#ff5722 ', '#795548', '#607d8b']
-
-  next.addEventListener('click', () => getQuote('next'))
-  prev.addEventListener('click', () => getQuote('prev'))
-
-  document.querySelector(".modal__container").addEventListener('click', () => {
-    if (event.target.className === 'modal__container') {
-        document.getElementById("info-toggle").click()
-    }
-  })
-
-  const getQuote = direction => {
-    if (direction === 'next') {
-      if (currentQuote === null || currentQuote === quotes.length - 1) {
-        axios
-          .get(url())
-          .then(res => {
-            quotes.push({
-              quote: res.data[0].content.rendered.slice(3, -5).trim(),
-              author: res.data[0].title.rendered
-            })
-            currentQuote === null ? (currentQuote = 0) : currentQuote++
-            render()
-          })
-          .catch(err => alert('Something went wrong', err))
-      } else {
-        currentQuote++
-        render()
-      }
-    } else {
-      if (prevState) {
-        currentQuote--
-        render()
-      }
-    }
-  }
+  const colors = [
+    '#f44336',
+    '#e91e63',
+    '#9c27b0',
+    '#673ab7',
+    '#3f51b5',
+    '#2196f3',
+    '#03a9f4',
+    '#00bcd4',
+    '#009688',
+    '#4caf50',
+    '#8bc34a',
+    '#ffc107',
+    '#ff9800',
+    '#ff5722 ',
+    '#795548',
+    '#607d8b',
+  ]
 
   const chkPrevState = () => {
     if (quotes.length > 1 && currentQuote !== 0) {
@@ -60,8 +43,7 @@
   }
 
   const render = () => {
-    quote = quotes[currentQuote].quote
-    author = quotes[currentQuote].author
+    const { quote, author } = quotes[currentQuote]
 
     chkPrevState()
 
@@ -78,6 +60,40 @@
 
     tweet.setAttribute('href', `https://twitter.com/intent/tweet?text="${quote.replace(/'/g, '%27')}"%0a- ${author}`)
   }
+
+  const getQuote = direction => {
+    if (direction === 'next') {
+      if (currentQuote === null || currentQuote === quotes.length - 1) {
+        // eslint-disable-next-line no-undef
+        axios
+          .get(url())
+          .then(res => {
+            quotes.push({
+              quote: res.data[0].content.rendered.slice(3, -5).trim(),
+              author: res.data[0].title.rendered,
+            })
+            currentQuote === null ? (currentQuote = 0) : (currentQuote += 1)
+            render()
+          })
+          .catch(err => alert('Something went wrong', err))
+      } else {
+        currentQuote += 1
+        render()
+      }
+    } else if (prevState) {
+      currentQuote -= 1
+      render()
+    }
+  }
+
+  next.addEventListener('click', () => getQuote('next'))
+  prev.addEventListener('click', () => getQuote('prev'))
+
+  document.querySelector('.modal__container').addEventListener('click', event => {
+    if (event.target.className === 'modal__container') {
+      document.getElementById('info-toggle').click()
+    }
+  })
 
   getQuote('next')
 })()
