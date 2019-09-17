@@ -33,6 +33,7 @@
     '#607d8b',
   ];
 
+  // Check if there is a quote already fetched
   const chkPrevState = () => {
     if (quotes.length > 1 && currentQuote !== 0) {
       prevState = true;
@@ -47,7 +48,7 @@
     const { quote, author } = quotes[currentQuote];
 
     chkPrevState();
-
+    // Randomly pick a new color
     body.style.setProperty('--color-primary', colors[Math.floor(Math.random() * colors.length)]);
 
     body.style.setProperty('--opacity', '0');
@@ -71,6 +72,7 @@
           .get(url())
           .then(res => {
             quotes.push({
+              // Remove <p> tag and trailing space
               quote: res.data[0].content.rendered.slice(3, -5).trim(),
               author: res.data[0].title.rendered,
             });
@@ -97,5 +99,6 @@
     }
   });
 
+  // Get intial quote
   getQuote('next');
 })();
